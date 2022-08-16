@@ -21,7 +21,7 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        Connection con = DataBase.getConnection();
+        Connection con = DataBaseConnection.getConnection();
         try {
             Statement stm = con.createStatement();
             ResultSet rs=stm.executeQuery("select * from product");
