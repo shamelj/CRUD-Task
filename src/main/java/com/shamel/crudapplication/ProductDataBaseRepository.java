@@ -8,7 +8,14 @@ public class ProductDataBaseRepository implements ProductRepository {
     private static final Connection con = DataBaseConnection.getConnection();
 
     @Override
-    public void addProduct(Product product) {
+    public void addProduct(Product product) throws SQLException {
+        String query = "Insert into product(id,name,price) values (?,?,?);";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1,product.getId());
+        ps.setString(2,product.getName());
+        ps.setFloat(3,product.getPrice());
+        int effectedRows = ps.executeUpdate();
+        System.out.println(effectedRows);
 
     }
 
@@ -45,7 +52,15 @@ public class ProductDataBaseRepository implements ProductRepository {
     }
 
     @Override
-    public void updateProduct(Product product) {
-
+    public void updateProduct(Product product) throws SQLException {
+        String query = "update product set name = ?, price = ? where id = ? ;";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1,product.getName());
+        ps.setFloat(2,product.getPrice());
+        ps.setInt(3,product.getId());
+        int effectedRows = ps.executeUpdate();
+        if (effectedRows == 0)
+            throw  new SQLException("This user doesn't exist.");
+        System.out.println(effectedRows);
     }
 }

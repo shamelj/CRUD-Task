@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ProductRepository {
-    void addProduct(Product product);
+    void addProduct(Product product) throws SQLException;
 
     Product retrieveProduct(int id) throws SQLException;
 
