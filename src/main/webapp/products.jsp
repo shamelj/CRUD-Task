@@ -27,7 +27,9 @@
 
     </tr>
     <%}%>
-</body>
 </table>
+<a href="index.jsp">Dashboard</a>
+
+</body>
 
 </html>

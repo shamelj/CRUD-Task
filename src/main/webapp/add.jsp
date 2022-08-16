@@ -16,5 +16,6 @@
 </form>
 <br>
 <p>${message}</p>
+<a href="index.jsp">Dashboard</a> <a href="Products">View Products</a>
 </body>
 </html>

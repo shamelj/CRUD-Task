@@ -8,9 +8,9 @@
         <h1>CRUD PROJECT</h1>
         <br/>
         <a href="Products">View Products</a>
-        <a href="hello-servlet">Add Product</a>
-        <a href="hello-servlet">Delete Product</a>
-        <a href="hello-servlet">Update Product</a>
+        <a href="add.jsp">Add Product</a>
+        <a href="delete.jsp">Delete Product</a>
+        <a href="update.jsp">Update Product</a>
 
     </body>
 </html>
