@@ -1,5 +1,8 @@
-package com.shamel.crudapplication;
+package com.shamel.crudapplication.servlets;
 
+import com.shamel.crudapplication.Product;
+import com.shamel.crudapplication.ProductDataBaseRepository;
+import com.shamel.crudapplication.ProductRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

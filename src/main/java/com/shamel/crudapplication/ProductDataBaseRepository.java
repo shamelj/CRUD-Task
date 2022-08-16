@@ -1,9 +1,6 @@
 package com.shamel.crudapplication;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +35,13 @@ public class ProductDataBaseRepository implements ProductRepository {
     }
 
     @Override
-    public void deleteProduct(int id) {
-
+    public void deleteProduct(int id) throws SQLException {
+        String query
+                = "delete from product where id =?";
+        PreparedStatement ps
+                = con.prepareStatement(query);
+        ps.setInt(1, id);
+        ps.executeUpdate();
     }
 
     @Override
