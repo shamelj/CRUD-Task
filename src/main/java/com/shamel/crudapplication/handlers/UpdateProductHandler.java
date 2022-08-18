@@ -1,21 +1,16 @@
-package com.shamel.crudapplication.servlets;
+package com.shamel.crudapplication.handlers;
 
 import com.shamel.crudapplication.Product;
 import com.shamel.crudapplication.ProductDataBaseRepository;
 import com.shamel.crudapplication.ProductRepository;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
+import com.shamel.crudapplication.handlers.RouteHandler;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "UpdateServlet", value = "/UpdateProduct")
-public class UpdateProductServlet extends HttpServlet {
+public class UpdateProductHandler implements RouteHandler {
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public String execute(HttpServletRequest request) {
         String url = "/update.jsp", message = "";
         ProductRepository repository = new ProductDataBaseRepository();
         int id = Integer.parseInt(request.getParameter("id"));
@@ -27,11 +22,8 @@ public class UpdateProductServlet extends HttpServlet {
             message = e.getMessage();
         }
         request.setAttribute("message",message);
-        getServletContext().getRequestDispatcher(url).forward(request,response);
-
-
+        return url;
     }
-
     private Product createProduct(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
@@ -39,5 +31,4 @@ public class UpdateProductServlet extends HttpServlet {
         Product product = new Product(id,price,name);
         return product;
     }
-
 }

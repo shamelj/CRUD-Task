@@ -1,23 +1,17 @@
-package com.shamel.crudapplication.servlets;
+package com.shamel.crudapplication.handlers;
 
 import com.shamel.crudapplication.Product;
 import com.shamel.crudapplication.ProductDataBaseRepository;
 import com.shamel.crudapplication.ProductRepository;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
+import com.shamel.crudapplication.handlers.RouteHandler;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "ProductsServlet", value = "/Products")
-
-public class RetrieveProductsServlet extends HttpServlet {
+public class RetreiveProductsHandler implements RouteHandler {
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public String execute(HttpServletRequest request) {
         String url = "/products.jsp", message = "";
         ProductRepository repository = new ProductDataBaseRepository();
         List<Product> products = null;
@@ -28,8 +22,6 @@ public class RetrieveProductsServlet extends HttpServlet {
         }
         request.setAttribute("message",message);
         request.setAttribute("products",products);
-        getServletContext().getRequestDispatcher(url).forward(request,response);
-
-
+        return url;
     }
 }

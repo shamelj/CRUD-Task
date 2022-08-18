@@ -11,13 +11,13 @@
     <title>Delete Product</title>
 </head>
 <body>
-    <form method="post" action="./DeleteProduct">
+    <form method="post" action="./DeleteProduct.do">
         <input type="number" name="id">
         <input type="submit" value="delete">
     </form>
 <br>
 <p>${message}</p>
-<a href="index.jsp">Dashboard</a> <a href="Products">View Products</a>
+<a href="index.jsp">Dashboard</a> <a href="Products.do">View Products</a>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <title>Add Product</title>
 </head>
 <body>
-<form method="post" action="./AddProduct">
+<form method="post" action="./AddProduct.do">
   <label>Id</label>
   <input type="number" name="id" required>
   <label>Name</label>
@@ -16,6 +16,6 @@
 </form>
 <br>
 <p>${message}</p>
-<a href="index.jsp">Dashboard</a> <a href="Products">View Products</a>
+<a href="index.jsp">Dashboard</a> <a href="Products.do">View Products</a>
 </body>
 </html>

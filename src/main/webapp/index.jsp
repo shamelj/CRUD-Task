@@ -7,7 +7,7 @@
     <body>
         <h1>CRUD PROJECT</h1>
         <br/>
-        <a href="Products">View Products</a>
+        <a href="Products.do">View Products</a>
         <a href="add.jsp">Add Product</a>
         <a href="delete.jsp">Delete Product</a>
         <a href="update.jsp">Update Product</a>
